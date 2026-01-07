@@ -15,6 +15,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+  <script src="script.js" defer></script>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <!-- Theme Configuration -->
@@ -39,20 +41,6 @@
     }
   </script>
 
-  <style>
-    /* Smooth scrolling for anchor links */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    section[id]:not(#join) {
-      scroll-margin-top: 40px;
-    }
-
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-  </style>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased overflow-x-hidden">
@@ -100,21 +88,75 @@
                 </button>
               </div>
             </div>
+            <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-b border-[#e7f3e7]
+         flex-col p-4 gap-2 shadow-xl lg:hidden z-40">
 
+              <a href="#about" class="group flex items-center justify-between
+            px-3 py-3 rounded-2xl
+            text-[#0d1b0d] font-medium
+            transition-all duration-200
+            hover:bg-primary/15 hover:text-primary">
+                <span>Giới thiệu</span>
+                <span class="material-symbols-outlined text-xl
+                 transition-transform duration-200
+                 group-hover:translate-x-1">
+                  chevron_right
+                </span>
+              </a>
 
-            <div id="mobile-menu"
-              class="hidden absolute top-full left-0 w-full bg-white border-b border-[#e7f3e7] flex-col p-4 gap-4 shadow-xl lg:hidden z-40">
-              <a class="flex items-center justify-between text-[#0d1b0d] py-2 border-b border-gray-50 font-medium"
-                href="#about">Giới thiệu<span class="material-symbols-outlined text-xl">chevron_right</span></a>
-              <a class="flex items-center justify-between text-[#0d1b0d] py-2 border-b border-gray-50 font-medium"
-                href="#activities">Hoạt động<span class="material-symbols-outlined text-xl">chevron_right</span></a>
-              <a class="flex items-center justify-between text-[#0d1b0d] py-2 border-b border-gray-50 font-medium"
-                href="#schedule">Lịch sinh hoạt<span class="material-symbols-outlined text-xl">chevron_right</span></a>
-              <a class="flex items-center justify-between text-[#0d1b0d] py-2 border-b border-gray-50 font-medium"
-                href="#team">Ban điều hành<span class="material-symbols-outlined text-xl">chevron_right</span></a>
-              <a class="flex items-center justify-between text-[#0d1b0d] py-2 border-b border-gray-50 font-medium"
-                href="#gallery">Thư viện<span class="material-symbols-outlined text-xl">chevron_right</span></a>
+              <a href="#activities" class="group flex items-center justify-between
+            px-3 py-3 rounded-2xl
+            text-[#0d1b0d] font-medium
+            transition-all duration-200
+            hover:bg-primary/15 hover:text-primary">
+                <span>Hoạt động</span>
+                <span class="material-symbols-outlined text-xl
+                 transition-transform duration-200
+                 group-hover:translate-x-1">
+                  chevron_right
+                </span>
+              </a>
+
+              <a href="#schedule" class="group flex items-center justify-between
+            px-3 py-3 rounded-2xl
+            text-[#0d1b0d] font-medium
+            transition-all duration-200
+            hover:bg-primary/15 hover:text-primary">
+                <span>Lịch sinh hoạt</span>
+                <span class="material-symbols-outlined text-xl
+                 transition-transform duration-200
+                 group-hover:translate-x-1">
+                  chevron_right
+                </span>
+              </a>
+
+              <a href="#team" class="group flex items-center justify-between
+            px-3 py-3 rounded-2xl
+            text-[#0d1b0d] font-medium
+            transition-all duration-200
+            hover:bg-primary/15 hover:text-primary">
+                <span>Ban điều hành</span>
+                <span class="material-symbols-outlined text-xl
+                 transition-transform duration-200
+                 group-hover:translate-x-1">
+                  chevron_right
+                </span>
+              </a>
+
+              <a href="#gallery" class="group flex items-center justify-between
+            px-3 py-3 rounded-2xl
+            text-[#0d1b0d] font-medium
+            transition-all duration-200
+            hover:bg-primary/15 hover:text-primary">
+                <span>Thư viện</span>
+                <span class="material-symbols-outlined text-xl
+                 transition-transform duration-200
+                 group-hover:translate-x-1">
+                  chevron_right
+                </span>
+              </a>
             </div>
+
           </header>
         </div>
       </div>
@@ -697,19 +739,25 @@
       </div>
     </div>
   </footer>
-  <!-- <div id="toast" class="fixed top-6 right-6 z-50 items-center gap-5 px-5 py-4 rounded-xl
-         bg-green-500 text-white font-semibold shadow-lg">
-    <span class="material-symbols-outlined">check_circle</span>
-    <span id="toastMessage"></span>
-  </div> -->
-  <div id="toast" class="fixed top-6 right-6 z-50 hidden flex items-center gap-3 px-5 py-4 rounded-xl
-         bg-green-500 text-white font-semibold shadow-lg">
+  <div id="toast" class="fixed top-6 right-6 z-50 flex items-center gap-3 px-5 py-4 rounded-xl
+         bg-green-500 text-white font-semibold shadow-lg
+         transform translate-x-full opacity-0
+         transition-all duration-500 ease-out">
+    <span class="material-symbols-outlined text-[24px] flex items-center justify-center">
+      check_circle
+    </span>
+    <span id="toastMessage" class="leading-none"></span>
+  </div>
+  <!-- <div id="toast" class="fixed top-6 right-6 z-50 hidden flex items-center gap-3 px-5 py-4 rounded-xl
+         bg-green-500 text-white font-semibold shadow-lg
+         transform translate-x-full opacity-0
+         transition-all duration-300 ease-out">
     <span class="material-symbols-outlined text-[24px] flex items-center justify-center">
       check_circle
     </span>
     <span id="toastMessage" class="leading-none">Thông báo thành công!</span>
-  </div>
-  <script>
+  </div> -->
+  <!-- <script>
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -807,7 +855,7 @@
     phoneInput.addEventListener("input", () => {
       phoneInput.value = phoneInput.value.replace(/\D/g, "");
     });
-  </script>
+  </script> -->
 </body>
 
 </html>
